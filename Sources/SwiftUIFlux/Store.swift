@@ -37,7 +37,7 @@ final public class Store<StoreState: FluxState>: ObservableObject {
     }
 
     public func dispatch(action: Action) {
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .utility).async {
             self.dispatchFunction(action)
         }
     }
